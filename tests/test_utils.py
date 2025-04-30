@@ -87,4 +87,3 @@ def test_fetch_stock_prices(mock_get):
         {"stock": "AAPL", "price": 210.00},
     ]
     assert result == expected
-

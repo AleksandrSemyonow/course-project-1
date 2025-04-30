@@ -68,8 +68,8 @@ def spending_by_category(transactions: pd.DataFrame, category: str, date: Option
                 continue
             else:
                 day_, month_, year_ = i["Дата платежа"].split(".")
-                date_obj_ = datetime.datetime(int(year), int(month), int(day))
-                if date_start <= date_obj_ <= date_start + datetime.timedelta(days=90):
+                date_obj_ = datetime.datetime(int(year_), int(month_), int(day_))
+                if date_start > date_obj_ or date_obj_ > date_start + datetime.timedelta(days=90):
                     final_list.append(i["Сумма платежа"])
         logger.info("Завершение работы функции")
         data_json = json.dumps(final_list, indent=4, ensure_ascii=False, )
